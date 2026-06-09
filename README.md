@@ -30,8 +30,3 @@ Application : http://localhost:8080
 ```bash
 ./gradlew test
 ```
-
-## Profil PostgreSQL
-```bash
-./gradlew bootRun --args='--spring.profiles.active=postgres'
-```
