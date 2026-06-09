@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <title>SGVAC — Journal des accès</title>
+</head>
+<body>
+<h1>Journal des accès</h1>
+<p><a th:href="@{/}">← Tableau de bord</a></p>
+
+<form th:action="@{/logs}" method="get">
+    <label>Badge <input type="text" name="badgeCode"/></label>
+    <label>Décision
+        <select name="decision">
+            <option value="">— toutes —</option>
+            <option value="AUTHORIZED">Autorisé</option>
+            <option value="DENIED">Refusé</option>
+        </select>
+    </label>
+    <button type="submit">Filtrer</button>
+</form>
+
+<table border="1" cellpadding="4" style="margin-top:1rem; border-collapse:collapse;">
+    <thead>
+    <tr>
+        <th>Date/heure</th><th>Badge</th><th>Décision</th>
+        <th>Motif</th><th>Point de contrôle</th><th>Agent</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="e : ${events}">
+        <td th:text="${e.eventTime}"></td>
+        <td th:text="${e.badgeCode}"></td>
+        <td th:text="${e.decision}"></td>
+        <td th:text="${e.reason}"></td>
+        <td th:text="${e.checkpoint}"></td>
+        <td th:text="${e.agentUsername}"></td>
+    </tr>
+    <tr th:if="${events.isEmpty()}">
+        <td colspan="6">Aucun événement.</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

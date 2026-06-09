@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <title>SGVAC — Connexion</title>
+</head>
+<body>
+<h1>SGVAC — Connexion</h1>
+
+<p th:if="${param.error}" style="color:red;">Identifiants invalides ou compte verrouillé.</p>
+<p th:if="${param.logout}" style="color:green;">Vous êtes déconnecté.</p>
+
+<form th:action="@{/login}" method="post">
+    <div>
+        <label>Identifiant <input type="text" name="username" required/></label>
+    </div>
+    <div>
+        <label>Mot de passe <input type="password" name="password" required/></label>
+    </div>
+    <button type="submit">Se connecter</button>
+</form>
+</body>
+</html>

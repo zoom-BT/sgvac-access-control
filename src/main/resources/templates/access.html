@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <title>SGVAC — Contrôle d'accès</title>
+</head>
+<body>
+<h1>Contrôle d'accès</h1>
+<p><a th:href="@{/}">← Tableau de bord</a></p>
+
+<form th:action="@{/access}" method="post">
+    <div>
+        <label>Code badge <input type="text" name="badgeCode" required autofocus/></label>
+    </div>
+    <div>
+        <label>Point de contrôle
+            <input type="text" name="checkpoint" value="Portail principal"/></label>
+    </div>
+    <button type="submit">Vérifier</button>
+</form>
+
+<div th:if="${event != null}" style="margin-top:1rem;">
+    <h2 th:if="${event.decision.name() == 'AUTHORIZED'}" style="color:green;">
+        ✔ ACCÈS AUTORISÉ
+    </h2>
+    <h2 th:if="${event.decision.name() == 'DENIED'}" style="color:red;">
+        ✘ ACCÈS REFUSÉ
+    </h2>
+    <ul>
+        <li>Badge : <span th:text="${event.badgeCode}"></span></li>
+        <li>Motif : <span th:text="${event.reason}"></span></li>
+        <li>Point de contrôle : <span th:text="${event.checkpoint}"></span></li>
+        <li>Agent : <span th:text="${event.agentUsername}"></span></li>
+    </ul>
+</div>
+</body>
+</html>
