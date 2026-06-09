@@ -15,6 +15,9 @@ hs_err_pid*
 # Spring Boot
 *.original
 
+# H2 demo database (created at runtime by bootRun)
+data/
+
 # IDE
 .idea/
 *.iml
