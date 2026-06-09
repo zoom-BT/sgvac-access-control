@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <title>SGVAC — Tableau de bord</title>
+</head>
+<body>
+<h1>SGVAC — Tableau de bord</h1>
+<p>Connecté en tant que <strong th:text="${username}">user</strong>.</p>
+
+<ul>
+    <li><a th:href="@{/access}">Contrôle d'accès (badge)</a></li>
+    <li><a th:href="@{/logs}">Journal des accès</a></li>
+</ul>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Se déconnecter</button>
+</form>
+</body>
+</html>
