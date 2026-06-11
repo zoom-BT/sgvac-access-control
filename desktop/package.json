@@ -1,0 +1,44 @@
+{
+  "name": "sgvac-desktop",
+  "version": "1.0.0",
+  "description": "SGVAC — application de bureau (Electron) embarquant l'UI Next.js et le backend Spring Boot",
+  "main": "main.js",
+  "author": "Chantier",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "serve-handler": "^6.1.6"
+  },
+  "devDependencies": {
+    "electron": "^33.3.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.chantier.sgvac",
+    "productName": "SGVAC",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "package.json"
+    ],
+    "extraResources": [
+      { "from": "../frontend/out", "to": "frontend" },
+      { "from": "resources/backend", "to": "backend" },
+      { "from": "resources/jre", "to": "jre" },
+      { "from": "resources/jdkpatch", "to": "jdkpatch", "filter": ["**/*"] }
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

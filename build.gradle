@@ -27,7 +27,6 @@ dependencies {
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
 	runtimeOnly 'com.h2database:h2'
-	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.mockito:mockito-core'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
@@ -37,7 +36,7 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-// Only the executable Spring Boot jar is needed (keeps Docker COPY unambiguous).
+// Only the executable Spring Boot jar is needed (the desktop app bundles a single jar).
 tasks.named('jar') {
 	enabled = false
 }
