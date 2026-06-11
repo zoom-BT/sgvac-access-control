@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+:root {
+  --sgvac-anthracite: #1c1c1e;
+  --sgvac-orange: #e85d04;
+  --sgvac-green: #2d6a4f;
+  --sgvac-red: #9b2226;
+  --sgvac-concrete: #f4f1ec;
+}
+
+body {
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  color: var(--sgvac-concrete);
+  background: var(--sgvac-anthracite);
+}
+
+.font-display {
+  font-family: var(--font-barlow), system-ui, sans-serif;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s ease-in-out infinite;
+}

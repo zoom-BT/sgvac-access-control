@@ -1,3 +1,10 @@
+sgvac:
+  jwt:
+    secret: "sgvac-test-secret-key-min-32-characters!!"
+    expiration-ms: 3600000
+  cors:
+    allowed-origins: http://localhost:3000
+
 spring:
   datasource:
     url: jdbc:h2:mem:sgvac-test;DB_CLOSE_DELAY=-1

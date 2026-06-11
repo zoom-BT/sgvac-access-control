@@ -35,3 +35,11 @@ Thumbs.db
 .env
 application-local.properties
 application-local.yml
+
+# Local dev helpers (environment-specific, not part of the project)
+.claude/
+run-app.bat
+frontend/run-frontend.bat
+
+# Source/drop folder for raw imagery (served copies live in frontend/public/images)
+img/
